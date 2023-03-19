@@ -36,19 +36,23 @@ public class TestCallable implements Callable<Boolean> {
         TestCallable t3 = new TestCallable("https://kuangstudy.oss-cn-beijing.aliyuncs.com/bbs/2021/08/03/kuangstudyaef93204-e2a6-41da-bf60-6a88e59da2b3.jpg","3.jpg");
 
         // 创建执行服务
+        //  Create Execution Service
         ExecutorService ser = Executors.newFixedThreadPool(3);
 
         // 提交执行
+        // Submit for execution
         Future<Boolean> r1 = ser.submit(t1);
         Future<Boolean> r2 = ser.submit(t2);
         Future<Boolean> r3 = ser.submit(t3);
 
         // 获取结果
+        // Get the results
         boolean rs1 = r1.get();
         boolean rs2 = r2.get();
         boolean rs3 = r3.get();
 
         // 关闭服务
+        // Shut down service
         ser.shutdownNow();
     }
 }
